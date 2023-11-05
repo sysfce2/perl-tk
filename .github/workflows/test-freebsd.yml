@@ -15,11 +15,14 @@ jobs:
     - uses: cross-platform-actions/action@v0.21.1
       with:
         operating_system: freebsd
-        version: '13.2'
+        version: '12.4'
+        shell: sh
         run: |
           sudo pkg update
           sudo pkg install -y perl5 libX11 libXft png freetype2 fontconfig jpeg-turbo xorg-vfbserver
-          Xvfb :123 &
+          nohup Xvfb :123 > /dev/null 2>&1 &
+          export DISPLAY=:123
           perl Makefile.PL
           make
           make test
+          pkill Xvfb
