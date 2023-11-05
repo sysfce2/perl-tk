@@ -19,7 +19,8 @@ jobs:
         shell: sh
         run: |
           sudo pkg update
-          sudo pkg install -y perl5 libX11 libXft png freetype2 fontconfig jpeg-turbo xorg-vfbserver
+          sudo pkg install -y perl5 libX11 libXft png freetype2 fontconfig jpeg-turbo xorg-vfbserver llvm13
+          cc --version
           nohup Xvfb :123 > /dev/null 2>&1 &
           export DISPLAY=:123
           perl Makefile.PL
