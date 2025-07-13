@@ -117,7 +117,7 @@ jobs:
       run: |
         set -e
         case "$CODENAME" in
-          wheezy|jessie|stretch)
+          wheezy|jessie|stretch|buster)
             echo "APT::Get::AllowUnauthenticated 1;" > /etc/apt/apt.conf.d/02allow-unsigned
             echo "deb [check-valid-until=no] http://archive.debian.org/debian $CODENAME main"                   >  /etc/apt/sources.list
             echo "deb [check-valid-until=no] http://archive.debian.org/debian-security/ $CODENAME/updates main" >> /etc/apt/sources.list
