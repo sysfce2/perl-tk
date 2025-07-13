@@ -16,13 +16,14 @@ jobs:
     strategy:
       matrix:
         include:
-          - os:             'ubuntu-20.04'
-            window_manager: 'kwin'
-            with_test_pod:  'yes'
-            use_xft:        'yes'
-            libpng:         'libpng-dev'
-            libz:           'libz-dev'
-            libjpeg:        'libjpeg-dev'
+          ## ubuntu 20.04 is retired
+          #- os:             'ubuntu-20.04'
+          #  window_manager: 'kwin'
+          #  with_test_pod:  'yes'
+          #  use_xft:        'yes'
+          #  libpng:         'libpng-dev'
+          #  libz:           'libz-dev'
+          #  libjpeg:        'libjpeg-dev'
           ## XXX check later
           #- os:             'ubuntu-20.04'
           #  window_manager: 'sawfish'
@@ -45,6 +46,13 @@ jobs:
             libpng:         ''
             libz:           ''
             libjpeg:        ''
+          - os:             'ubuntu-24.04'
+            window_manager: 'kwin'
+            with_test_pod:  'yes'
+            use_xft:        'yes'
+            libpng:         'libpng-dev'
+            libz:           'libz-dev'
+            libjpeg:        'libjpeg-dev'
 
     steps:
     - name: apt hacks
